@@ -22,11 +22,7 @@ export default defineConfig((config) => {
       // erlaubt externe Hosts
       allowedHosts: ['bolt.loca-cloud.de', '.loca-cloud.de'],
       // HMR über Domain und TLS terminieren
-      hmr: {
-        host: process.env.VITE_HMR_HOST,
-        port: Number(process.env.VITE_HMR_PORT),
-        protocol: process.env.VITE_HMR_PROTOCOL,
-      },
+      
     build: {
       target: 'esnext',
     },
