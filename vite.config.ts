@@ -17,8 +17,16 @@ export default defineConfig((config) => {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     },
     server: {
-      allowedHosts: ["bolt.loca-cloud.de"],
-    },
+      // bindet auf alle Interfaces, nicht nur 127.0.0.1
+      host: true,
+      // erlaubt externe Hosts
+      allowedHosts: ['bolt.loca-cloud.de', '.loca-cloud.de'],
+      // HMR über Domain und TLS terminieren
+      hmr: {
+        host: process.env.VITE_HMR_HOST,
+        port: Number(process.env.VITE_HMR_PORT),
+        protocol: process.env.VITE_HMR_PROTOCOL,
+      },
     build: {
       target: 'esnext',
     },
